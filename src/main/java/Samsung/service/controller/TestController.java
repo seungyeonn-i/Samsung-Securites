@@ -9,7 +9,7 @@ public class TestController {
 
     @GetMapping("/chart")
     public String chart(Model model){
-        return "/basic/basic";
+        return "basic/basic";
     }
 
 }
