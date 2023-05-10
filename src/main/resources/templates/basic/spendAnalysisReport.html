@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!--    <link href="./css/sticky-footer-navbar.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+    <title>고정비 지출 분석중</title>
+</head>
+<!--<body class="container-fluid" style="padding-top: 106px">-->
+<!--<div class="p-8 mb-2 bg-light rounded-3">-->
+<body>
+<div class="container-fluid py-1">
+    <h1 class="display-3 fw-bold " style="padding-top: 106px">월 소득 대비<br>
+        고정비 지출을<br>
+        분석 중이에요</h1>
+    <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous
+        versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
+    <button class="btn btn-primary btn-lg w-100 " type="button" onclick="handleAgree()">확인</button>
+</div>
+
+
+<!--<body class="container-fluid" style="padding-top: 106px">-->
+<!--<div class="container-fluid p-8 mb-2 bg-light rounded-3" >-->
+
+<div class="col-md-6">
+    <div class="h-100 p-5 bg-light border rounded-3">
+<!--        <h2>Add borders</h2>-->
+        <p class="col-md-8 fs-5">고정비 카테고리별 비율</p>
+        <canvas id="myChart" style="height:30vh; width:30vw"></canvas>
+        <script type="text/javascript">
+        let context = document
+            .getElementById('myChart')
+            .getContext('2d');
+        let myChart = new Chart(context, {
+            type: 'pie', // 차트의 형태
+            data: { // 차트에 들어갈 데이터
+<!--                labels: [-->
+<!--                    //x 축-->
+<!--                    '1','2','3','4','5','6','7'-->
+<!--                ],-->
+                datasets: [
+                    { //데이터
+                        label: 'test1', //차트 제목
+                        fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
+                        data: [
+                            21,19,25,20,23,26,25 //x축 label에 대응되는 데이터 값
+                        ],
+                        backgroundColor: [
+                            //색상
+                            'rgb(70, 127, 238 )',
+                            'rgb(128, 150, 228)',
+                            'rgb(41, 93, 226)',
+                            'rgb(168, 194, 245)',
+                            'rgb(178, 204, 255)',
+<!--                            'rgb(255, 159, 64, 0.2)'-->
+                        ],
+                        borderColor: [
+                            //경계선 색상
+                            'rgb(70, 127, 238 )',
+                            'rgb(128, 150, 228)',
+                            'rgb(41, 93, 226)',
+                            'rgb(168, 194, 245)',
+                            'rgb(178, 204, 255)',
+<!--                            'rgba(255, 159, 64, 1)'-->
+                        ],
+                        borderWidth: 1 //경계선 굵기
+                    }/* ,
+                        {
+                            label: 'test2',
+                            fill: false,
+                            data: [
+                                8, 34, 12, 24
+                            ],
+                            backgroundColor: 'rgb(157, 109, 12)',
+                            borderColor: 'rgb(157, 109, 12)'
+                        } */
+                ]
+            },
+            options: {
+                responsive: false,
+
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    },
+                    gridLines: {
+                        drawBorder: false,
+                        color: 'transparent',
+                        zeroLineColor: 'transparent'
+                    }
+                 }],
+                xAxes: [{
+                    gridLines: {
+                        drawBorder: false,
+                        color: 'transparent',
+                        zeroLineColor: 'transparent'
+                    }
+                }]
+
+
+            }
+        });
+    </script>
+<!--        <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>-->
+<!--        <button class="btn btn-outline-secondary" type="button">Example button</button>-->
+    </div>
+</div>
+<!--    <div class="container-fluid py-1">-->
+
+<!--    <div style="width: 900px; height: 900px;">-->
+<!--        style="height:30vh; width:50vw-->
+        <!--차트가 그려질 부분-->
+
+</body>
+
+
+<!--</body>-->
+<!--style="padding-bottom: 62px "-->
+
+<script>
+      function handleAgree() {
+        // 확인 버튼 클릭 시 처리할 액션을 작성합니다.
+        alert("마이데이터 이용에 동의하셨습니다.");
+      }
+    </script>
+</body>
+</html>
