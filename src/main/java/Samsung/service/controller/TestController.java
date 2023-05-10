@@ -11,5 +11,9 @@ public class TestController {
     public String chart(Model model){
         return "basic/basic";
     }
+    @GetMapping("/mydata")
+    public String mydataAgree(Model model){
+        return "basic/mydataAgree";
+    }
 
 }

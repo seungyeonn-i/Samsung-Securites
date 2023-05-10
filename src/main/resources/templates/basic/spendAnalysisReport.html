@@ -18,12 +18,10 @@
 <!--<div class="p-8 mb-2 bg-light rounded-3">-->
 <body>
 <div class="container-fluid py-1">
-    <h1 class="display-3 fw-bold " style="padding-top: 106px">월 소득 대비<br>
-        고정비 지출을<br>
-        분석 중이에요</h1>
-    <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous
-        versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
-    <button class="btn btn-primary btn-lg w-100 " type="button" onclick="handleAgree()">확인</button>
+    <h3 class="display-3 fw-bold " style="padding-top: 106px">5월 고정비 지출</h3>
+    <p class="col-md-8 fs-4 fw-semibold">고정비로<br>
+        34%를 지출하셨어요</p>
+    <p class="col-md-8 fs-4 fw-light">지난달 대비 10% 줄었어요</p>
 </div>
 
 
@@ -32,8 +30,18 @@
 
 <div class="col-md-6">
     <div class="h-100 p-5 bg-light border rounded-3">
-<!--        <h2>Add borders</h2>-->
-        <p class="col-md-8 fs-5">고정비 카테고리별 비율</p>
+        <!--        <h2>Add borders</h2>-->
+        <p class="col-md-8 fs-5">소득 테이블</p>
+
+        <!--        <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>-->
+        <!--        <button class="btn btn-outline-secondary" type="button">Example button</button>-->
+    </div>
+</div>
+
+<div class="col-md-6">
+    <div class="h-100 p-5 bg-light border rounded-3 w-100">
+        <!--        <h2>Add borders</h2>-->
+        <p class="col-md-8 fs-5 ">고정비 카테고리별 비율</p>
         <canvas id="myChart" style="height:30vh; width:30vw"></canvas>
         <script type="text/javascript">
         let context = document
@@ -109,10 +117,17 @@
             }
         });
     </script>
-<!--        <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>-->
-<!--        <button class="btn btn-outline-secondary" type="button">Example button</button>-->
+        <!--        <p>Or, keep it light and add a border for some added definition to the boundaries of your content. Be sure to look under the hood at the source HTML here as we've adjusted the alignment and sizing of both column's content for equal-height.</p>-->
+        <!--        <button class="btn btn-outline-secondary" type="button">Example button</button>-->
+        <div class="d-flex justify-content-between">
+            <button class="btn btn-primary btn-lg" style="width: 45%" type="button" onclick="handleAgree()">다른 미혼 여성과 비교하기</button>
+            <button class="btn btn-primary btn-lg" style="width: 45%" type="button" onclick="handleAgree()">고정비 줄이기</button>
+        </div>
     </div>
+
 </div>
+
+
 <!--    <div class="container-fluid py-1">-->
 
 <!--    <div style="width: 900px; height: 900px;">-->
