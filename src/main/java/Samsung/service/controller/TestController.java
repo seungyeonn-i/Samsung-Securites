@@ -15,5 +15,13 @@ public class TestController {
     public String mydataAgree(Model model){
         return "basic/mydataAgree";
     }
+    @GetMapping("/spendAnalysis")
+    public String spendAnalysis(Model model){
+        return "basic/spendAnalysis";
+    }
+    @GetMapping("/spendAnalysisReport")
+    public String spendAnalysisReport(Model model){
+        return "basic/spendAnalysisReport";
+    }
 
 }
