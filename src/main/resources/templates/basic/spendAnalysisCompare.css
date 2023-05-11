@@ -1,0 +1,22 @@
+.hi{
+    position: absolute;
+    width: 215px;
+    height: 63px;
+    left: 40px;
+    top: 298px;
+}
+.button{
+    width: 125px;
+    height: 33px;
+    left: 48px;
+    top: 633px;
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 8px;
+    color: #FFFFFF;
+    background-color: #2B66F5;
+    border-radius: 10px;
+    text-align: center;
+    border : none;
+}

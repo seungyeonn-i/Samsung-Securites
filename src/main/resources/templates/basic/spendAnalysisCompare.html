@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="spendAnalysisReportNew.css">
+    <link rel="stylesheet" href="spendAnalysisCompare.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
     <title>고정비 지출 분석중</title>
@@ -14,26 +15,18 @@
 <body>
 <div class="top-graphbox">
     <div class="top">
-        <!--            <div class="mx-auto">-->
-        <h3 style="text-align: center">고정 지출 분석 레포트</h3>
-        <h1>5월 고정비 지출</h1>
-        <p>고정비로<br>34%를 지출하셨어요</p>
-        <p>지난달 대비 10% 줄었어요</p>
+        <h3>다른 미혼 여성과<br>
+            고정비 지출 내역을 비교하여<br>
+            지출을 점검해보세요</h3>
     </div>
 
-    <div class="table" style="display: flex; justify-content: space-between;">
-        <div class="colum">
-            <p>월소득</p>
-            <p>총지출</p>
-            <p>고정 소득</p>
-        </div>
-        <div class="line">Line</div>
-        <div class="value">
-            <p>200,000원</p>
-            <p>232,39299원</p>
-            <p>232,039원</p>
-        </div>
+    <div class="hi">
+    <p>보험비에 매월 8만원<br>
+            과도한 지출을 하고 있어요</p>
+        <p>보험 변경 시 1년 기준<br>
+            2만원을 절약할 수 있어요!</p>
     </div>
+
 
 
     <div class="graphbox" style="background-color: #F5F5F5">
@@ -119,11 +112,9 @@
                 </script>
         </div>
         <br>
-        <p style="text-align: center">보험비에 가장 많은 지출을 하고 있어요</p>
 
         <div style="text-align: center">
-            <button class="buttons" type="button" onclick="handleAgree()">다른 미혼 여성과 비교하기</button>
-            <button class="buttons" type="button" onclick="handleAgree()">고정비 줄이기</button>
+            <button class="button" type="button" onclick="handleAgree()">다른 미혼 여성과 비교하기</button>
         </div>
 
     </div>
