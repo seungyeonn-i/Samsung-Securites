@@ -5,36 +5,43 @@
     <!-- Required meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!--    <link href="./css/sticky-footer-navbar.css" rel="stylesheet">-->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/spendAnalysisReportNew.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
     <title>고정비 지출 분석중</title>
 </head>
+
 <body>
-<div class="container py-1">
-    <div class="mx-auto w-75">
+<div class="top-graphbox">
+        <div class="top">
+<!--            <div class="mx-auto">-->
+            <h3 style="text-align: center">고정 지출 분석 레포트</h3>
+            <h1>5월 고정비 지출</h1>
+            <p>고정비로<br>34%를 지출하셨어요</p>
+            <p>지난달 대비 10% 줄었어요</p>
+        </div>
 
-    <p class="display-9 fw-bold " style="padding-top: 20px;text-align:center">고정 지출 분석 레포트</p>
-    <p class="display-6 fw-bold " style="padding-top: 10px">5월 고정비 지출</p>
-    <p class="col-md-8 fs-6 fw-semibold">고정비로<br>
-        34%를 지출하셨어요</p>
-    <p class="col-md-8 fs-6 fw-light">지난달 대비 10% 줄었어요</p>
+    <div class="table" style="display: flex; justify-content: space-between;">
+        <div class="colum">
+        <p>월소득</p>
+        <p>총지출</p>
+        <p>고정 소득</p>
+        </div>
+        <div class="line">Line</div>
+        <div class="value">
+        <p>200,000원</p>
+        <p>232,39299원</p>
+        <p>232,039원</p>
+        </div>
     </div>
-</div>
 
 
-<div class="col-md-6">
-    <div class="d-flex justify-content-center align-items-center" style="padding-top:30px; ">
-<!--    <div class="d-flex justify-content-center align-items-center" style="height: 100vh; ">-->
-
-    <div class="h-75 p-5 rounded-30 border w-75 " style="background-color: #F5F5F5" >
-        <p class="col-md-8 fs-5 text-center fw-bold ">고정비 카테고리별 비율</p>
-            <div class="chart-container" style="padding-top: 10px; display: flex; justify-content: center; align-items: center;">
-            <canvas id="myChart" style="height:150px; width:150px; text-align: center "></canvas>
-        <script type="text/javascript">
+        <div class="graphbox" style="background-color: #F5F5F5">
+            <p style="text-align: center">고정비 카테고리별 비율</p>
+            <div class="chart-container"
+                 style="padding-top: 5px; display: flex; justify-content: center; align-items: center;">
+                <canvas id="myChart" style="height:150px; width:150px; text-align: center "></canvas>
+                <script type="text/javascript">
         let context = document
             .getElementById('myChart')
             .getContext('2d');
@@ -108,29 +115,27 @@
 
             }
         });
-    </script>
 
+                </script>
             </div>
-        <br>
-        <p class="col-md-8 fs-5 text-center ">보험비에 가장 많은 지출을 하고 있어요</p>
+            <br>
+            <p style="text-align: center">보험비에 가장 많은 지출을 하고 있어요</p>
 
-        <div class="d-flex justify-content-between" style="flex: 1" >
-            <button class="btn btn-primary btn-lg" style="transform: scale(0.5)" type="button" onclick="handleAgree()">다른 미혼 여성과 비교하기</button>
-            <button class="btn btn-primary btn-lg" style="transform: scale(0.5)" type="button" onclick="handleAgree()">고정비 줄이기</button>
+            <div style="text-align: center">
+                <button class="buttons" type="button" onclick="handleAgree()">다른 미혼 여성과 비교하기</button>
+                <button class="buttons" type="button" onclick="handleAgree()">고정비 줄이기</button>
+            </div>
+
         </div>
 
-    </div>
 
-</div>
+        <!--    <div class="container-fluid py-1">-->
 
-
-<!--    <div class="container-fluid py-1">-->
-
-<!--    <div style="width: 900px; height: 900px;">-->
-<!--        style="height:30vh; width:50vw-->
+        <!--    <div style="width: 900px; height: 900px;">-->
+        <!--        style="height:30vh; width:50vw-->
         <!--차트가 그려질 부분-->
 
-</body>
+    </div></body>
 
 
 <!--</body>-->
