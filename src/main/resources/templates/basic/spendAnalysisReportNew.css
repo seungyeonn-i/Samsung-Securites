@@ -43,6 +43,8 @@
 }
 .table{
     position: absolute;
+    display: flex;
+    justify-content: space-between;
     width: 265px;
     height: 98px;
     left: 45px;
@@ -50,7 +52,7 @@
 
     box-sizing: border-box;
     background: #FFFFFF;
-    border: 0.5px solid #D6D6D6;
+    border: 3px solid #D6D6D6;
     border-radius: 5px;
     padding-left: 10px;
     padding-right: 10px;
@@ -61,12 +63,13 @@
     line-height: 0.8;
 }
 .line{
+    /*position: absolute;*/
     position: absolute;
     width: 98px;
     height: 0px;
     left: 133.33px;
     top: 243px;
 
-    border: 0.5px solid #D9D9D9;
+    border: 3px solid #D9D9D9;
     transform: rotate(90deg);
 }
