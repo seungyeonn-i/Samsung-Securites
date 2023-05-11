@@ -19,9 +19,9 @@ public class TestController {
     public String spendAnalysis(Model model){
         return "basic/spendAnalysis";
     }
-    @GetMapping("/spendAnalysisReport")
+    @GetMapping("/spendAnalysisReportNew")
     public String spendAnalysisReport(Model model){
-        return "basic/spendAnalysisReport";
+        return "basic/spendAnalysisReportNew";
     }
 
 }
