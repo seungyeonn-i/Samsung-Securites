@@ -23,5 +23,12 @@ public class TestController {
     public String spendAnalysisReport(Model model){
         return "basic/spendAnalysisReportNew";
     }
+    @GetMapping("/spendAnalysisRecommend")
+    public String spendAnalysisRecommend(Model model){
+        return "basic/spendAnalysisRecommend";
+    }@GetMapping("/spendAnalysisCompare")
+    public String spendAnalysisCompare(Model model){
+        return "basic/spendAnalysisCompare";
+    }
 
 }
