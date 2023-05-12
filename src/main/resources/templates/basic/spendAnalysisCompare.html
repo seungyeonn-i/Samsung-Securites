@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="spendAnalysisReportNew.css">
+<!--    <link rel="stylesheet" href="spendAnalysisReportNew.css">-->
     <link rel="stylesheet" href="spendAnalysisCompare.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
@@ -20,6 +20,16 @@
             지출을 점검해보세요</h3>
     </div>
 
+    <div class = "middle">
+    <div class="menu">
+        <img src="./asset/1.png" class="half" alt="Image 1">
+        <img src="./asset/2.png"class="half"  alt="Image 1">
+        <img src="./asset/3.png"class="half"  alt="Image 1">
+        <img src="./asset/4.png" class="half" alt="Image 1">
+        <img src="./asset/5.png"class="half"  alt="Image 1">
+    </div>
+    </div>
+
     <div class="hi">
     <p>보험비에 매월 8만원<br>
             과도한 지출을 하고 있어요</p>
@@ -29,28 +39,28 @@
 
 
 
+
     <div class="graphbox" style="background-color: #F5F5F5">
-        <p style="text-align: center">고정비 카테고리별 비율</p>
         <div class="chart-container"
-             style="padding-top: 5px; display: flex; justify-content: center; align-items: center;">
-            <canvas id="myChart" style="height:150px; width:150px; text-align: center "></canvas>
+             style="padding-top: 10px; display: flex; justify-content: center; align-items: center;">
+            <canvas id="myChart" style="height:200px; width:250px; text-align: center "></canvas>
             <script type="text/javascript">
         let context = document
             .getElementById('myChart')
             .getContext('2d');
         let myChart = new Chart(context, {
-            type: 'pie', // 차트의 형태
+            type: 'horizontalBar', // 차트의 형태
             data: { // 차트에 들어갈 데이터
-<!--                labels: [-->
-<!--                    //x 축-->
-<!--                    '1','2','3','4','5','6','7'-->
-<!--                ],-->
+                labels: [
+                    //x 축
+                    '1','2','3'
+                ],
                 datasets: [
                     { //데이터
                         label: 'test1', //차트 제목
                         fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
                         data: [
-                            21,19,25,20,23,26,25 //x축 label에 대응되는 데이터 값
+                            9,30,50 //x축 label에 대응되는 데이터 값
                         ],
                         backgroundColor: [
                             //색상
@@ -71,16 +81,7 @@
 <!--                            'rgba(255, 159, 64, 1)'-->
                         ],
                         borderWidth: 1 //경계선 굵기
-                    }/* ,
-                        {
-                            label: 'test2',
-                            fill: false,
-                            data: [
-                                8, 34, 12, 24
-                            ],
-                            backgroundColor: 'rgb(157, 109, 12)',
-                            borderColor: 'rgb(157, 109, 12)'
-                        } */
+                    }
                 ]
             },
             options: {
@@ -88,22 +89,35 @@
                 maintainAspectRatio : false,
 
                 yAxes: [{
+
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        drawOnChartArea: false
+
                     },
                     gridLines: {
+                        display: false,
                         drawBorder: false,
                         color: 'transparent',
                         zeroLineColor: 'transparent'
                     }
                  }],
                 xAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        drawOnChartArea: false
+
+                    },
                     gridLines: {
+                        display: false,
                         drawBorder: false,
                         color: 'transparent',
                         zeroLineColor: 'transparent'
                     }
-                }]
+
+
+                }],
+
 
 
             }
@@ -114,7 +128,7 @@
         <br>
 
         <div style="text-align: center">
-            <button class="button" type="button" onclick="handleAgree()">다른 미혼 여성과 비교하기</button>
+            <button class="button" type="button" onclick="handleAgree()">내역 자세히 보기</button>
         </div>
 
     </div>
