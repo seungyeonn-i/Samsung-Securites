@@ -14,13 +14,13 @@
 
 }
 .middle{
-    width: 290px;
+    width: 315px;
     text-align: center;
 
 }
 .half {
-    width: 50%; /* 이미지의 너비를 50%로 설정하여 절반 크기로 조정 */
-    height: auto; /* 너비에 맞게 이미지의 높이를 자동 조정 */
+    width: 50%; /* �대�吏��� �덈퉬瑜� 50%濡� �ㅼ젙�섏뿬 �덈컲 �ш린濡� 議곗젙 */
+    height: auto; /* �덈퉬�� 留욊쾶 �대�吏��� �믪씠瑜� �먮룞 議곗젙 */
     max-width: 100%;
 
 }
@@ -121,10 +121,10 @@
     margin-top: 20px;
 
 
-    /*background: url(그림1.png);*/
+    /*background: url(洹몃┝1.png);*/
     border-radius: 10px;
     /*margin-top:20px*/
-    width: 70%; /* 이미지의 너비를 50%로 설정하여 절반 크기로 조정 */
-    height: auto; /* 너비에 맞게 이미지의 높이를 자동 조정 */
+    width: 70%; /* �대�吏��� �덈퉬瑜� 50%濡� �ㅼ젙�섏뿬 �덈컲 �ш린濡� 議곗젙 */
+    height: auto; /* �덈퉬�� 留욊쾶 �대�吏��� �믪씠瑜� �먮룞 議곗젙 */
     max-width: 100%;
 }
