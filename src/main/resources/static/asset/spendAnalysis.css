@@ -60,7 +60,7 @@
     /*left: 32px;*/
     /*top: 413px;*/
 
-    background: #F5F5F5;
+    background: #FFFFFF;
     border-radius: 15px;
     /*text-align: center;*/
     padding-bottom: 20px;
@@ -70,10 +70,12 @@
 .top{
     /*position: absolute;*/
     width: 315px;
-
+    margin-top:30px;
+    margin-left:20px;
     color: #000000;
 
 }
+
 .before{
 
     width: 12px;
@@ -81,5 +83,6 @@
 
     margin-top: 20px;
     margin-right: 328px;
+
 
 }

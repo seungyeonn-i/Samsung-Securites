@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://kusitsm27new.s3.us-east-2.amazonaws.com/spendAnalysisReportNew.css">
-
+<!--    <link rel="stylesheet" href="https://kusitsm27new.s3.us-east-2.amazonaws.com/spendAnalysisReportNew.css">-->
+    <link rel="stylesheet" href="../../static/asset/spendAnalysisReportNew.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
     <title>고정비 지출 분석중</title>
@@ -12,7 +12,9 @@
 
 <body>
 <div class="top-graphbox">
-        <div class="top">
+    <img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/Vector.png" class="before" alt="Image 1">
+
+    <div class="top">
 <!--            <div class="mx-auto">-->
             <h3 style="text-align: center">고정 지출 분석 레포트</h3>
             <h1>5월 고정비 지출</h1>
@@ -120,8 +122,8 @@
             <p style="text-align: center">보험비에 가장 많은 지출을 하고 있어요</p>
 
             <div style="text-align: center">
-                <button class="buttons" type="button" onclick="handleAgree()">다른 미혼 여성과 비교하기</button>
-                <button class="buttons" type="button" onclick="handleAgree()">고정비 줄이기</button>
+                <button class="buttons" type="button" onclick="location.href='spendAnalysisCompare.html'">다른 미혼 여성과 비교하기</button>
+                <button class="buttons" type="button" onclick="location.href='spendAnalysisRecommend.html'">고정비 줄이기</button>
             </div>
 
         </div>
