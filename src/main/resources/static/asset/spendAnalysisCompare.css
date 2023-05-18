@@ -8,7 +8,7 @@
     /*width: 296px;*/
 
     display: flex;
-    width: 130px;
+    width: 296px;
     height: 60px;
     /*left : 30px;*/
 
@@ -20,12 +20,12 @@
 
 }
 
-.half {
-    width: 50%; /* 이미지의 너비를 50%로 설정하여 절반 크기로 조정 */
-    height: auto; /* 너비에 맞게 이미지의 높이를 자동 조정 */
-    max-width: 100%;
+/*.half {*/
+/*    width: 50%; !* 이미지의 너비를 50%로 설정하여 절반 크기로 조정 *!*/
+/*    height: auto; !* 너비에 맞게 이미지의 높이를 자동 조정 *!*/
+/*    max-width: 100%;*/
 
-}
+/*}*/
 .hi{
     /*position: absolute;*/
     width: 296px;
@@ -34,6 +34,19 @@
     top: 298px;
 
 
+}
+.image-button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+.image-button img {
+    display: block;
+    width: 130px; /* 이미지의 너비를 50%로 설정하여 절반 크기로 조정 */
+    height: auto; /* 너비에 맞게 이미지의 높이를 자동 조정 */
+    max-width: 100%;
 }
 .button{
     /*position: absolute;*/

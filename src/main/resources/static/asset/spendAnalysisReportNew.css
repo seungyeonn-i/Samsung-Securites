@@ -18,7 +18,7 @@
     width: 290px;
     height: 325px;
     left: calc(50% - 290px/2);
-    top: 357px;
+    top: 330px;
 
     background: #F5F5F5;
     border-radius: 10px;
@@ -48,7 +48,7 @@
     width: 265px;
     height: 98px;
     /*left: 45px;*/
-    top: 243px;
+    top: 220px;
 
     box-sizing: border-box;
     background: #FFFFFF;
