@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -55,6 +56,7 @@ public class MainController {
     public String spendAnalysisCompare(Model model) throws JsonProcessingException {
         model.addAttribute("maxSpend", "보험비");
         model.addAttribute("maxSpendMoney", 8);
+        model.addAttribute("category", "식비");
 
         int[] dataValues = new int[]{9, 30, 50};
         ObjectMapper objectMapper = new ObjectMapper();
@@ -65,13 +67,12 @@ public class MainController {
         return "basic/spendAnalysisCompare";
     }
 
-    @GetMapping("/spendList")
-    public String spendList(Model model) {
+    @GetMapping("/spendList/{category}")
+    public String spendList(Model model , @PathVariable("category") String category) {
         model.addAttribute("month", 5);
         model.addAttribute("totalMoney", 20000);
-        model.addAttribute("items",mainService.getExpenseList(Category.식비));
-
-//        expenseList.add(new ExpenseDto("식비", 10000));
+        model.addAttribute("category", category);
+        model.addAttribute("items", mainService.getExpenseList(Category.valueOf(category)));
 
         return "basic/spendList";
     }

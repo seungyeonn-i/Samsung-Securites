@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://kusitsm27new.s3.us-east-2.amazonaws.com/spendAnalysisCompare.css">
-<!--    <link rel="stylesheet" href="../../static/asset/spendAnalysisCompare.css">-->
+<!--            <link rel="stylesheet" href="../../static/asset/spendAnalysisCompare.css">-->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
@@ -30,67 +30,34 @@
 
     <div class="middle">
         <div class="menu">
-            <button class="image-button" onclick="location.href='/getFoodCompare'"><img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/1.png" alt="Image 1"></button>
-            <button class="image-button" onclick="location.href='/getTransportCompare'"><img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/2.png" alt="Image 2"></button>
-            <button class="image-button" onclick="location.href='/getHousingCompare'"><img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/3.png" alt="Image 3"></button>
-            <button class="image-button" onclick="location.href='/getInsuranceCompare'"><img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/4.png" alt="Image 4"></button>
-            <button class="image-button" onclick="location.href='/getSubscribeCompare'"><img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/5.png" alt="Image 5"></button>
+            <button class="image-button" onclick="location.href='/getFoodCompare'"><img
+                    src="https://kusitsm27new.s3.us-east-2.amazonaws.com/1.png" alt="Image 1"></button>
+            <button class="image-button" onclick="location.href='/getTransportCompare'"><img
+                    src="https://kusitsm27new.s3.us-east-2.amazonaws.com/2.png" alt="Image 2"></button>
+            <button class="image-button" onclick="location.href='/getHousingCompare'"><img
+                    src="https://kusitsm27new.s3.us-east-2.amazonaws.com/3.png" alt="Image 3"></button>
+            <button class="image-button" onclick="location.href='/getInsuranceCompare'"><img
+                    src="https://kusitsm27new.s3.us-east-2.amazonaws.com/4.png" alt="Image 4"></button>
+            <button class="image-button" onclick="location.href='/getSubscribeCompare'"><img
+                    src="https://kusitsm27new.s3.us-east-2.amazonaws.com/5.png" alt="Image 5"></button>
         </div>
     </div>
 
 
     <div class="hi">
-        <p><span th:text="${maxSpend}" style="color: #2B66F5;"></span>에 매월 <span th:text="${maxSpendMoney}" style="color: #2B66F5;"></span>만원<br>
+        <p><span th:text="${maxSpend}" style="color: #2B66F5;"></span>에 매월 <span th:text="${maxSpendMoney}"
+                                                                                 style="color: #2B66F5;"></span>만원<br>
             과도한 지출을 하고 있어요</p>
         <p>보험 변경 시 1년 기준<br>
             2만원을 절약할 수 있어요!</p>
     </div>
-
-<!--    <div class="hi">-->
-<!--        <p><span id="maxSpend"></span>에 매월 <span id="maxSpendMoney"></span>만원<br>과도한 지출을 하고 있어요</p>-->
-<!--        <p>보험 변경 시 1년 기준<br>2만원을 절약할 수 있어요!</p>-->
-<!--    </div>-->
-
-<!--    <script>-->
-<!--    // 버튼 클릭 시 호출되는 함수-->
-<!--    function redirectToCompare(path, imageNumber) {-->
-<!--        // 원하는 동작을 수행하기 전에 필요한 전처리 작업을 수행할 수 있습니다.-->
-
-<!--        // 경로와 이미지 번호를 조합하여 새로운 URL을 생성합니다.-->
-<!--        var url = path + "?image=" + imageNumber;-->
-
-<!--        // 생성된 URL로 페이지를 이동합니다.-->
-<!--        window.location.href = url;-->
-<!--    }-->
-
-<!--    // 버튼 클릭 시 동작할 함수-->
-<!--    function handleButtonClick(imageNumber) {-->
-<!--        // 이미지 번호에 따라서 적용할 값을 설정합니다.-->
-<!--        if (imageNumber === 1) {-->
-<!--            document.getElementById("maxSpend").textContent = "1번 이미지에 대한 값";-->
-<!--            document.getElementById("maxSpendMoney").textContent = "1번 이미지에 대한 값";-->
-<!--        } else if (imageNumber === 2) {-->
-<!--            document.getElementById("maxSpend").textContent = "2번 이미지에 대한 값";-->
-<!--            document.getElementById("maxSpendMoney").textContent = "2번 이미지에 대한 값";-->
-<!--        } else if (imageNumber === 3) {-->
-<!--            document.getElementById("maxSpend").textContent = "3번 이미지에 대한 값";-->
-<!--            document.getElementById("maxSpendMoney").textContent = "3번 이미지에 대한 값";-->
-<!--        } else if (imageNumber === 4) {-->
-<!--            document.getElementById("maxSpend").textContent = "4번 이미지에 대한 값";-->
-<!--            document.getElementById("maxSpendMoney").textContent = "4번 이미지에 대한 값";-->
-<!--        } else if (imageNumber === 5) {-->
-<!--            document.getElementById("maxSpend").textContent = "5번 이미지에 대한 값";-->
-<!--            document.getElementById("maxSpendMoney").textContent = "5번 이미지에 대한 값";-->
-<!--        }-->
-<!--    }-->
-<!--</script>-->
 
 
     <div class="graphbox" style="background-color: #F5F5F5">
         <div class="chart-container"
              style="padding-top: 10px; display: flex; justify-content: center; align-items: center;">
             <canvas id="myChart" style="height:200px; width:250px; text-align: center "></canvas>
-<!--            <script type="text/javascript" th:inline="javascript">-->
+            <!--            <script type="text/javascript" th:inline="javascript">-->
             <script type="text/javascript" th:inline="javascript">
              let jsonData = /*[[${jsonData}]]*/ null; // JSON 데이터를 JavaScript 변수로 할당
             let dataValues = JSON.parse(jsonData); // JSON 데이터를 JavaScript 배열로 변환
@@ -173,13 +140,15 @@
             }
         });
 
-                </script>
+
+            </script>
         </div>
         <br>
 
-        <div style="text-align: center">
-            <button class="button" type="button" onclick="location.href='/spendList'">내역 자세히 보기</button>
-<!--            각 카테고리에 맞는 값으로 이동해야함-->
+        <div class="font">
+            <div class="button">
+                <a class="button" th:href="@{/spendList/{category}(category=${category})}">내역 자세히보기</a>
+            </div>
         </div>
 
     </div>
@@ -191,17 +160,12 @@
     <!--        style="height:30vh; width:50vw-->
     <!--차트가 그려질 부분-->
 
-</div></body>
+</div>
+</body>
 
 
 <!--</body>-->
 <!--style="padding-bottom: 62px "-->
 
-<script>
-      function handleAgree() {
-        // 확인 버튼 클릭 시 처리할 액션을 작성합니다.
-        alert("마이데이터 이용에 동의하셨습니다.");
-      }
-    </script>
-</body>
+
 </html>
