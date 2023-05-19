@@ -1,17 +1,25 @@
 package Samsung.service.controller;
 
+import Samsung.service.dto.ExpenseDto;
+import Samsung.service.entity.Category;
+import Samsung.service.entity.Expense;
+import Samsung.service.service.MainService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 public class MainController {
 
+    private final MainService mainService;
 
     @GetMapping("/mydata")
     public String mydataAgree(Model model) {
@@ -59,6 +67,12 @@ public class MainController {
 
     @GetMapping("/spendList")
     public String spendList(Model model) {
+        model.addAttribute("month", 5);
+        model.addAttribute("totalMoney", 20000);
+        model.addAttribute("items",mainService.getExpenseList(Category.식비));
+
+//        expenseList.add(new ExpenseDto("식비", 10000));
+
         return "basic/spendList";
     }
 }

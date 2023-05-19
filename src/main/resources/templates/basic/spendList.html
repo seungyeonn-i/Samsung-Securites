@@ -1,13 +1,13 @@
-<c:set var="path" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+
 <html>
 <head>
     <meta charset="UTF-8">
     <!-- Required meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!--        <link rel="stylesheet" href="spendAnalysisReportNew.css">-->
     <link rel="stylesheet" href="../../static/asset/spendList.css">
 <!--    <link rel="stylesheet" href="https://kusitsm27new.s3.us-east-2.amazonaws.com/spendList.css">-->
 
@@ -21,9 +21,12 @@
 <div class="top-graphbox">
     <img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/Vector.png" class="before" alt="Image 1">
 
-    <div class="top">
-        <h2 style="flex:1">5월 식비</h2>
-        <h2 style="flex:1; color:#2B66F5">300,000원</h2>
+    <div class="top" style=" margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+   text-align: center;">
+        <h2 style="flex:1"><span th:text="${month}"></span>월 식비</h2>
+        <h2 style="flex:1; color:#2B66F5"><span th:text="${totalMoney}"></span>원</h2>
     </div>
     <div class = "middle">
         <hr style="color:#D9D9D9; height: 3px;  background-color: #D9D9D9;">
@@ -32,42 +35,53 @@
 
 
 
+        <div th:each="item : ${items}" >
+<!--            <div class="spendList" >-->
+            <div class="hi" style=" margin-left: 26px; color:#868686; font-weight: 500;">
+                <p><span th:text="${item.date}"></span></p>
+            </div>
+            <div class="list" style="width: 322px;
+                                        height: 45px;
+                                        left: 21px;
+                                        top: 202px;
+
+                                        background: #E4E8FC;
+                                        border-radius: 20px;
+                                        text-align: center;
+                                        display: flex;
+                                        flex-direction: row;
+                                        margin: 0 auto;">
+
+                <p class="hi2" style="flex:2; margin-top:15px;margin-left: 30px;height: 30px;font-weight: bold; font-size: 12px; line-height: 17px;"><span th:text="${item.title}"></span></p>
+                <p class="hi2" style="flex:2; margin-top:15px;margin-left: 30px;height: 30px;font-weight: bold; font-size: 12px; line-height: 17px; color:#2B66F5"><span th:text="${item.price}"></span>원</p>
+            </div>
+            <hr>
+<!--            </div>-->
+        </div>
 
 
-    <div class="spendList" >
-        <div class="hi">
-            <p>5월 13일</p>
-        </div>
-        <div class="list">
-            <p class="hi2" style="flex:1">메차쿠차</p>
-            <p class="hi2" style="flex:1; color:#2B66F5">12,000원</p>
-        </div>
-        <hr>
-    </div>
+<!--    <div class="spendList" >-->
+<!--        <div class="hi">-->
+<!--            <p>5월 13일</p>-->
+<!--        </div>-->
+<!--        <div class="list">-->
+<!--            <p class="hi2" style="flex:2">메차쿠차</p>-->
+<!--            <p class="hi2" style="flex:2; color:#2B66F5">12,000원</p>-->
+<!--        </div>-->
+<!--        <hr>-->
+<!--    </div>-->
 
 
-    <div class="spendList" >
-        <div class="hi">
-            <p>5월 13일</p>
-        </div>
-        <div class="list">
-            <p class="hi2" style="flex:2">메차쿠차</p>
-            <p class="hi2" style="flex:2; color:#2B66F5">12,000원</p>
-        </div>
-        <hr>
-    </div>
-
-
-    <div class="spendList" >
-        <div class="hi">
-            <p>5월 13일</p>
-        </div>
-        <div class="list">
-            <p class="hi2" style="flex:2">메차쿠차</p>
-            <p class="hi2" style="flex:2; color:#2B66F5">12,000원</p>
-        </div>
-        <hr>
-    </div>
+<!--    <div class="spendList" >-->
+<!--        <div class="hi">-->
+<!--            <p>5월 13일</p>-->
+<!--        </div>-->
+<!--        <div class="list">-->
+<!--            <p class="hi2" style="flex:2">메차쿠차</p>-->
+<!--            <p class="hi2" style="flex:2; color:#2B66F5">12,000원</p>-->
+<!--        </div>-->
+<!--        <hr>-->
+<!--    </div>-->
 
 
 
