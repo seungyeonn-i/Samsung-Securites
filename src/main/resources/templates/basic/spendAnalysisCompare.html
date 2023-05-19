@@ -32,9 +32,9 @@
         <div class="menu">
             <button class="image-button" onclick="location.href='/getFoodCompare'"><img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/1.png" alt="Image 1"></button>
             <button class="image-button" onclick="location.href='/getTransportCompare'"><img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/2.png" alt="Image 2"></button>
-            <button class="image-button" onclick="location.href='/getSubscribeCompare'"><img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/3.png" alt="Image 3"></button>
-            <button class="image-button" onclick="location.href='/getHousingCompare'"><img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/4.png" alt="Image 4"></button>
-            <button class="image-button" onclick="location.href='/getInsuranceCompare'"><img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/5.png" alt="Image 5"></button>
+            <button class="image-button" onclick="location.href='/getHousingCompare'"><img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/3.png" alt="Image 3"></button>
+            <button class="image-button" onclick="location.href='/getInsuranceCompare'"><img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/4.png" alt="Image 4"></button>
+            <button class="image-button" onclick="location.href='/getSubscribeCompare'"><img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/5.png" alt="Image 5"></button>
         </div>
     </div>
 
@@ -90,24 +90,28 @@
         <div class="chart-container"
              style="padding-top: 10px; display: flex; justify-content: center; align-items: center;">
             <canvas id="myChart" style="height:200px; width:250px; text-align: center "></canvas>
-            <script type="text/javascript">
+<!--            <script type="text/javascript" th:inline="javascript">-->
+            <script type="text/javascript" th:inline="javascript">
+             let jsonData = /*[[${jsonData}]]*/ null; // JSON 데이터를 JavaScript 변수로 할당
+            let dataValues = JSON.parse(jsonData); // JSON 데이터를 JavaScript 배열로 변환
+
         let context = document
             .getElementById('myChart')
             .getContext('2d');
+
         let myChart = new Chart(context, {
             type: 'horizontalBar', // 차트의 형태
             data: { // 차트에 들어갈 데이터
                 labels: [
                     //x 축
-                    '1','2','3'
+                    '나의 지출','동일 연령대','동일 소득'
+
                 ],
                 datasets: [
                     { //데이터
-                        label: 'test1', //차트 제목
+                        label: '단위:만원', //차트 제목
                         fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
-                        data: [
-                            9,30,50 //x축 label에 대응되는 데이터 값
-                        ],
+                        data: dataValues,
                         backgroundColor: [
                             //색상
                             'rgb(70, 127, 238 )',
@@ -174,7 +178,8 @@
         <br>
 
         <div style="text-align: center">
-            <button class="button" type="button" onclick="handleAgree()">내역 자세히 보기</button>
+            <button class="button" type="button" onclick="location.href='/spendList'">내역 자세히 보기</button>
+<!--            각 카테고리에 맞는 값으로 이동해야함-->
         </div>
 
     </div>
