@@ -19,6 +19,7 @@ public class Member {
     private Long transportation;
     private Long subscription;
     private Long insurance;
+    private Long income;
     @OneToMany(mappedBy = "member")
     private List<Food> foods = new ArrayList<>();
     @OneToMany(mappedBy = "member")

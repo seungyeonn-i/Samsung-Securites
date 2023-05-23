@@ -1,5 +1,6 @@
 package Samsung.service.controller;
 
+import Samsung.service.entity.Category;
 import Samsung.service.service.MainService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,7 @@ public class SubController {
         model.addAttribute("maxSpendMoney", 8);
         model.addAttribute("category", "식비");
 
-        String jsonData = mainService.createChart();
+        String jsonData = mainService.createChart(Category.식비);
         model.addAttribute("jsonData", jsonData);
         return "basic/spendAnalysisCompare";
 //        return "redirect:/spendAnalysisCompare";
@@ -31,7 +32,7 @@ public class SubController {
         model.addAttribute("category", "교통비");
 
 
-        String jsonData = mainService.createChart();
+        String jsonData = mainService.createChart(Category.교통비);
         model.addAttribute("jsonData", jsonData);
         return "basic/spendAnalysisCompare";
     }
@@ -41,8 +42,7 @@ public class SubController {
         model.addAttribute("maxSpendMoney", 8);
         model.addAttribute("category", "통신비");
 
-
-        String jsonData = mainService.createChart();
+        String jsonData = mainService.createChart(Category.구독비);
         model.addAttribute("jsonData", jsonData);
         return "basic/spendAnalysisCompare";
     }
@@ -53,7 +53,7 @@ public class SubController {
         model.addAttribute("category", "주거비");
 
 
-        String jsonData = mainService.createChart();
+        String jsonData = mainService.createChart(Category.주거비);
         model.addAttribute("jsonData", jsonData);
         return "basic/spendAnalysisCompare";
     }
@@ -64,7 +64,7 @@ public class SubController {
         model.addAttribute("category", "보험비");
 
 
-        String jsonData = mainService.createChart();
+        String jsonData = mainService.createChart(Category.보험비);
         model.addAttribute("jsonData", jsonData);
 
         return "basic/spendAnalysisCompare";
