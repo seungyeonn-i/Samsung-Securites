@@ -7,12 +7,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
 public interface MemberRepository extends JpaRepository<Member, Long> {
 
 
+    @Query("select m from Member m where m.id = :userId")
+    Optional<Member> getMyExpenses(@Param("userId") Long userId);
     @Query("select avg(m.food) from Member m where m.id = :userId")
     Optional<Integer> getSameAgeExpenseAverageFood(@Param("userId") Long userId);
 

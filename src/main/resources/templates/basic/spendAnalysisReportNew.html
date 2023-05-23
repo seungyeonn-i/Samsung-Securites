@@ -41,7 +41,11 @@
         <div class="chart-container"
              style="padding-top: 5px; display: flex; justify-content: center; align-items: center;">
             <canvas id="myChart" style="height:150px; width:150px; text-align: center "></canvas>
-            <script type="text/javascript">
+            <script type="text/javascript" th:inline="javascript">
+
+            let jsonData = /*[[${jsonData}]]*/ null; // JSON 데이터를 JavaScript 변수로 할당
+            let dataValues = JSON.parse(jsonData); // JSON 데이터를 JavaScript 배열로 변환
+
         let context = document
             .getElementById('myChart')
             .getContext('2d');
@@ -50,15 +54,13 @@
             data: { // 차트에 들어갈 데이터
 <!--                labels: [-->
 <!--                    //x 축-->
-<!--                    '1','2','3','4','5','6','7'-->
+<!--                    '','2','3','4','5','6','7'-->
 <!--                ],-->
                 datasets: [
                     { //데이터
-                        label: 'test1', //차트 제목
+                        label: '식비,교통비', //차트 제목
                         fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
-                        data:[1,2,3,4,5],
-<!--                        let data = new Array();-->
-<!--                        data.push([[${array}]]);-->
+                        data: dataValues,
                         backgroundColor: [
                             //색상
                             'rgb(70, 127, 238 )',

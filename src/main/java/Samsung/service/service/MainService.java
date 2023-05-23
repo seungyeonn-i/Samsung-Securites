@@ -2,6 +2,7 @@ package Samsung.service.service;
 
 import Samsung.service.dto.ExpenseDto;
 import Samsung.service.entity.Category;
+import Samsung.service.entity.Member;
 import Samsung.service.repository.ExpenseRepository;
 import Samsung.service.repository.MemberRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -9,6 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -18,6 +20,25 @@ public class MainService {
     private final ExpenseRepository expenseRepository;
     private final MemberRepository memberRepository;
 
+    public String createMainChart(Long userId) throws JsonProcessingException {
+
+        // 나의 지출 , 동일 연령대, 동일 소득 파트별
+        Long [] dataValues = new Long[5];
+
+        Member member = memberRepository.getMyExpenses(41L).orElseThrow(NullPointerException::new);
+
+        dataValues[0] = member.getFood();
+        dataValues[1] = member.getTransportation();
+        dataValues[2] = member.getIncome();
+        dataValues[3] = member.getHousing();
+        dataValues[4] = member.getSubscription();
+
+        System.out.println(Arrays.toString(dataValues));
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.writeValueAsString(dataValues);
+
+    }
     public String createChart(Category category) throws JsonProcessingException {
 
         // 나의 지출 , 동일 연령대, 동일 소득 파트별
