@@ -40,7 +40,7 @@ public class SubController {
     public String getSubscribeCompare(Model model) throws JsonProcessingException {
         model.addAttribute("maxSpend", "통신비");
         model.addAttribute("maxSpendMoney", 8);
-        model.addAttribute("category", "통신비");
+        model.addAttribute("category", "구독비");
 
         String jsonData = mainService.createChart(Category.구독비);
         model.addAttribute("jsonData", jsonData);
