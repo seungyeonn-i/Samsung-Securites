@@ -1,8 +1,11 @@
 package Samsung.service.service;
 
+import Samsung.service.dto.CardDto;
 import Samsung.service.dto.ExpenseDto;
+import Samsung.service.entity.Card;
 import Samsung.service.entity.Category;
 import Samsung.service.entity.Member;
+import Samsung.service.repository.CardRepository;
 import Samsung.service.repository.ExpenseRepository;
 import Samsung.service.repository.MemberRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -10,6 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,6 +23,7 @@ public class MainService {
 
     private final ExpenseRepository expenseRepository;
     private final MemberRepository memberRepository;
+    private final CardRepository cardRepository;
 
     public String createMainChart(Long userId) throws JsonProcessingException {
 
@@ -73,5 +78,15 @@ public class MainService {
 
         return expenseRepository.getExpensesByCategory(41L, category).orElseThrow(NullPointerException::new);
 
+    }
+
+    public List<CardDto> getCards(Long categoryNum) {
+        List<CardDto> recards = new ArrayList<>();
+
+        List<Card> cards = cardRepository.findCardByCategoryId(categoryNum).orElseThrow(NullPointerException::new);
+        for (Card card : cards) {
+            recards.add(new CardDto(card.getName(), card.getDescription1(), card.getDescription2(),card.getImg()));
+        }
+        return recards;
     }
 }

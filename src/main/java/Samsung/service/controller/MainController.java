@@ -1,5 +1,6 @@
 package Samsung.service.controller;
 
+import Samsung.service.dto.CardDto;
 import Samsung.service.dto.ExpenseDto;
 import Samsung.service.entity.Category;
 import Samsung.service.entity.Expense;
@@ -50,6 +51,10 @@ public class MainController {
 
     @GetMapping("/spendAnalysisRecommend")
     public String spendAnalysisRecommend(Model model) {
+
+        Long categoryNum = 1L;
+        model.addAttribute("cards", mainService.getCards(categoryNum));
+
         return "basic/spendAnalysisRecommend";
     }
 
@@ -76,5 +81,11 @@ public class MainController {
         model.addAttribute("items", mainService.getExpenseList(Category.valueOf(category)));
 
         return "basic/spendList";
+    }
+
+    @GetMapping("/recommendCard/{category}")
+    public String recommendCard(Model model , @PathVariable("category") Long categoryNum) {
+        model.addAttribute("cards", mainService.getCards(categoryNum));
+        return "basic/spendAnalysisRecommend";
     }
 }

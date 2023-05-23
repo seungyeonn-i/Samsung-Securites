@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <!-- Required meta tags -->
@@ -24,54 +24,57 @@
             제안해드려요<br></h3>
     </div>
 
-    <div class = "middle">
-
+    <div class="middle">
         <div class="menu">
-            <img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/1.png" class="half" alt="Image 1" >
-            <img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/2.png" class="half" alt="Image 1">
-            <img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/3.png" class="half" alt="Image 1">
-            <img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/4.png" class="half" alt="Image 1">
-            <img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/5.png" class="half" alt="Image 1">
+            <button class="image-button" onclick="location.href='/recommendCard/1'"><img
+                    src="https://kusitsm27new.s3.us-east-2.amazonaws.com/1.png" alt="Image 1"></button>
+            <button class="image-button" onclick="location.href='/recommendCard/2'"><img
+                    src="https://kusitsm27new.s3.us-east-2.amazonaws.com/2.png" alt="Image 2"></button>
+            <button class="image-button" onclick="location.href='/recommendCard/3'"><img
+                    src="https://kusitsm27new.s3.us-east-2.amazonaws.com/3.png" alt="Image 3"></button>
+            <button class="image-button" onclick="location.href='/recommendCard/4'"><img
+                    src="https://kusitsm27new.s3.us-east-2.amazonaws.com/4.png" alt="Image 4"></button>
+            <button class="image-button" onclick="location.href='/recommendCard/5'"><img
+                    src="https://kusitsm27new.s3.us-east-2.amazonaws.com/5.png" alt="Image 5"></button>
         </div>
     </div>
 
 
 
+<!--    <div class="graphbox" style="background-color: #E4E8FC; margin-top: 20px">-->
 
+<!--        <div style="display: flex; flex-direction: row; width: 329px">-->
+<!--            <div style="flex: 8;">-->
+<!--            <div class="hi">-->
+<!--                <p>삼성 ID 달달 카드</p>-->
+<!--            </div>-->
+<!--            <div class="hi2">-->
+<!--                <p>생명보험, 손해보험 10% 할인카드</p>-->
+<!--            </div>-->
+<!--            <div class="hi3">-->
+<!--                <p>정기결제 시 10% 결제일 할인</p>-->
+<!--            </div>-->
+<!--            </div>-->
+<!--            <div style="flex: 2">-->
+<!--                <img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/c1.png" class="card" alt="Image 1">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        </div>-->
     <div class="graphbox" style="background-color: #E4E8FC; margin-top: 20px">
-
-        <div style="display: flex; flex-direction: row; width: 329px">
+        <div th:each="card : ${cards}" style="display: flex; flex-direction: row; width: 329px">
             <div style="flex: 8;">
             <div class="hi">
-                <p>삼성 ID 달달 카드</p>
+                <span th:text="${card.name}"></span>
             </div>
             <div class="hi2">
-                <p>생명보험, 손해보험 10% 할인카드</p>
+                <span th:text="${card.description1}"></span>
             </div>
             <div class="hi3">
-                <p>정기결제 시 10% 결제일 할인</p>
+                <span th:text="${card.description2}"></span>
             </div>
             </div>
             <div style="flex: 2">
-                <img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/c1.png" class="card" alt="Image 1">
-            </div>
-        </div>
-        </div>
-    <div class="graphbox" style="background-color: #E4E8FC; margin-top: 20px">
-        <div style="display: flex; flex-direction: row; width: 329px">
-            <div style="flex: 8;">
-            <div class="hi">
-                <p>삼성 ID 달달 카드</p>
-            </div>
-            <div class="hi2">
-                <p>생명보험, 손해보험 10% 할인카드</p>
-            </div>
-            <div class="hi3">
-                <p>정기결제 시 10% 결제일 할인</p>
-            </div>
-            </div>
-            <div style="flex: 2">
-                <img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/c1.png" class="card" alt="Image 1">
+                <img th:src="${card.img}"  class="card" alt="Image 1">
             </div>
         </div>
         </div>
