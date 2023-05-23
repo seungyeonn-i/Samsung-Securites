@@ -25,23 +25,23 @@ public class MainService {
         dataValues[0] = expenseRepository.getMyExpensesSumByCategory(41L, category).orElseThrow(NullPointerException::new)%100000;
         if (category.equals(Category.식비)) {
             dataValues[1] =memberRepository.getSameAgeExpenseAverageFood(41L).orElseThrow(NullPointerException::new)%100000;
-            dataValues[2] = 3;
+            dataValues[2] = memberRepository.getSameIncomeAverageFood(2500000L).orElseThrow(NullPointerException::new)%100000;
         }
         if (category.equals(Category.교통비)) {
-            dataValues[1] =memberRepository.getSameAgeExpenseAverageTranportation(41L).orElseThrow(NullPointerException::new)%100000;
-            dataValues[2] = 3;
+            dataValues[1] =memberRepository.getSameAgeExpenseAverageTransportation(41L).orElseThrow(NullPointerException::new)%100000;
+            dataValues[2] = memberRepository.getSameIncomeAverageTransportation(2500000L).orElseThrow(NullPointerException::new)%100000;
         }
         if (category.equals(Category.보험비)) {
             dataValues[1] =memberRepository.getSameAgeExpenseAverageInsurance(41L).orElseThrow(NullPointerException::new)%100000;
-            dataValues[2] = 3;
+            dataValues[2] = memberRepository.getSameIncomeAverageInsurance(2500000L).orElseThrow(NullPointerException::new)%100000;
         }
         if (category.equals(Category.주거비)) {
             dataValues[1] =memberRepository.getSameAgeExpenseAverageHousing(41L).orElseThrow(NullPointerException::new)%100000;
-            dataValues[2] = 3;
+            dataValues[2] = memberRepository.getSameIncomeAverageHousing(2500000L).orElseThrow(NullPointerException::new)%100000;
         }
         if (category.equals(Category.구독비)) {
             dataValues[1] =memberRepository.getSameAgeExpenseAverageSubscription(41L).orElseThrow(NullPointerException::new)%100000;
-            dataValues[2] = 3;
+            dataValues[2] = memberRepository.getSameIncomeAverageSubscription(2500000L).orElseThrow(NullPointerException::new)%100000;
         }
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(dataValues);
