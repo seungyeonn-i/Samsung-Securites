@@ -42,4 +42,5 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     @Query("select avg(m.transportation) from Member m where m.income = :income")
     Optional<Integer> getSameIncomeAverageTransportation( @Param("income") Long income);
 
+    Integer findIncomeById(Long userId);
 }

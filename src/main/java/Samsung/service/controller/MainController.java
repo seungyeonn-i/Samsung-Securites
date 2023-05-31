@@ -35,11 +35,13 @@ public class MainController {
 
     @GetMapping("/spendAnalysisReportNew")
     public String spendAnalysisReport(Model model) throws JsonProcessingException {
-        model.addAttribute("fixedPercent", 34);
+
+        List<Integer> incomes = mainService.getIncomes(41L);
+        model.addAttribute("fixedPercent", incomes.get(2));
         model.addAttribute("lastFixedPercent", 3);
-        model.addAttribute("month", 2000);
-        model.addAttribute("total", 20000);
-        model.addAttribute("fixed", 2032);
+        model.addAttribute("month", incomes.get(0));
+        model.addAttribute("total", incomes.get(1));
+        model.addAttribute("fixed", incomes.get(0));
 
         model.addAttribute("many", "보험비");
 

@@ -25,6 +25,19 @@ public class MainService {
     private final MemberRepository memberRepository;
     private final CardRepository cardRepository;
 
+    public List<Integer> getIncomes(Long userId) {
+        List<Integer> incomes = new ArrayList<>();
+        Member member = memberRepository.getMyExpenses(41L).orElseThrow(NullPointerException::new);
+
+        int income = Math.toIntExact(member.getIncome());
+        incomes.add(income);
+
+        double sum = (double) (member.getFood() + member.getTransportation() + member.getHousing() + member.getSubscription() + member.getInsurance());
+        incomes.add((int)sum);
+        incomes.add((int) (sum / income * 100));
+        return incomes;
+    }
+
     public String createMainChart(Long userId) throws JsonProcessingException {
 
         // 나의 지출 , 동일 연령대, 동일 소득 파트별
@@ -34,7 +47,7 @@ public class MainService {
 
         dataValues[0] = member.getFood();
         dataValues[1] = member.getTransportation();
-        dataValues[2] = member.getIncome();
+        dataValues[2] = member.getInsurance();
         dataValues[3] = member.getHousing();
         dataValues[4] = member.getSubscription();
 
@@ -48,26 +61,26 @@ public class MainService {
 
         // 나의 지출 , 동일 연령대, 동일 소득 파트별
         int[] dataValues = new int[3];
-        dataValues[0] = expenseRepository.getMyExpensesSumByCategory(41L, category).orElseThrow(NullPointerException::new)%100000;
+        dataValues[0] = expenseRepository.getMyExpensesSumByCategory(41L, category).orElseThrow(NullPointerException::new)/100000;
         if (category.equals(Category.식비)) {
-            dataValues[1] =memberRepository.getSameAgeExpenseAverageFood(41L).orElseThrow(NullPointerException::new)%100000;
-            dataValues[2] = memberRepository.getSameIncomeAverageFood(2500000L).orElseThrow(NullPointerException::new)%100000;
+            dataValues[1] =memberRepository.getSameAgeExpenseAverageFood(41L).orElseThrow(NullPointerException::new)/100000;
+            dataValues[2] = memberRepository.getSameIncomeAverageFood(2500000L).orElseThrow(NullPointerException::new)/100000;
         }
         if (category.equals(Category.교통비)) {
-            dataValues[1] =memberRepository.getSameAgeExpenseAverageTransportation(41L).orElseThrow(NullPointerException::new)%100000;
-            dataValues[2] = memberRepository.getSameIncomeAverageTransportation(2500000L).orElseThrow(NullPointerException::new)%100000;
+            dataValues[1] =memberRepository.getSameAgeExpenseAverageTransportation(41L).orElseThrow(NullPointerException::new)/100000;
+            dataValues[2] = memberRepository.getSameIncomeAverageTransportation(2500000L).orElseThrow(NullPointerException::new)/100000;
         }
         if (category.equals(Category.보험비)) {
-            dataValues[1] =memberRepository.getSameAgeExpenseAverageInsurance(41L).orElseThrow(NullPointerException::new)%100000;
-            dataValues[2] = memberRepository.getSameIncomeAverageInsurance(2500000L).orElseThrow(NullPointerException::new)%100000;
+            dataValues[1] =memberRepository.getSameAgeExpenseAverageInsurance(41L).orElseThrow(NullPointerException::new)/100000;
+            dataValues[2] = memberRepository.getSameIncomeAverageInsurance(2500000L).orElseThrow(NullPointerException::new)/100000;
         }
         if (category.equals(Category.주거비)) {
-            dataValues[1] =memberRepository.getSameAgeExpenseAverageHousing(41L).orElseThrow(NullPointerException::new)%100000;
-            dataValues[2] = memberRepository.getSameIncomeAverageHousing(2500000L).orElseThrow(NullPointerException::new)%100000;
+            dataValues[1] =memberRepository.getSameAgeExpenseAverageHousing(41L).orElseThrow(NullPointerException::new)/100000;
+            dataValues[2] = memberRepository.getSameIncomeAverageHousing(2500000L).orElseThrow(NullPointerException::new)/100000;
         }
         if (category.equals(Category.구독비)) {
-            dataValues[1] =memberRepository.getSameAgeExpenseAverageSubscription(41L).orElseThrow(NullPointerException::new)%100000;
-            dataValues[2] = memberRepository.getSameIncomeAverageSubscription(2500000L).orElseThrow(NullPointerException::new)%100000;
+            dataValues[1] =memberRepository.getSameAgeExpenseAverageSubscription(41L).orElseThrow(NullPointerException::new)/100000;
+            dataValues[2] = memberRepository.getSameIncomeAverageSubscription(2500000L).orElseThrow(NullPointerException::new)/100000;
         }
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(dataValues);
