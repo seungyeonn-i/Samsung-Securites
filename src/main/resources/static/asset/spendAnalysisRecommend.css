@@ -8,7 +8,7 @@
     /*width: 296px;*/
 
     display: flex;
-    width: 130px;
+    width: 296px;
     height: 60px;
     /*left : 30px;*/
 
@@ -63,6 +63,19 @@
     color: #989898;
 
 
+}
+.image-button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+.image-button img {
+    display: block;
+    width: 130px;
+    height: auto;
+    max-width: 100%;
 }
 .button{
     /*position: absolute;*/
@@ -124,3 +137,4 @@
 
 
 }
+

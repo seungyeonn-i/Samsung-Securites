@@ -44,8 +44,8 @@
 
 .image-button img {
     display: block;
-    width: 130px; /* �대�吏��� �덈퉬瑜� 50%濡� �ㅼ젙�섏뿬 �덈컲 �ш린濡� 議곗젙 */
-    height: auto; /* �덈퉬�� 留욊쾶 �대�吏��� �믪씠瑜� �먮룞 議곗젙 */
+    width: 130px;
+    height: auto;
     max-width: 100%;
 }
 .button{
