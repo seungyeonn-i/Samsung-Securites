@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--    <link rel="stylesheet" href="spendAnalysisReportNew.css">-->
-    <link rel="stylesheet" href="https://kusitsm27new.s3.us-east-2.amazonaws.com/spendAnalysisRecommend.css">
-<!--    <link rel="stylesheet" href="../../static/asset/spendAnalysisRecommend.css">-->
+<!--    <link rel="stylesheet" href="https://kusitsm27new.s3.us-east-2.amazonaws.com/spendAnalysisRecommend.css">-->
+    <link rel="stylesheet" href="../../static/asset/spendAnalysisRecommend.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
     <title>고정비 지출 분석중</title>
@@ -40,62 +40,65 @@
     </div>
 
 
+    <div class="graphbox" >
+        <div th:each="card : ${cards}" style="
 
-<!--    <div class="graphbox" style="background-color: #E4E8FC; margin-top: 20px">-->
+width: 329px;
+    height: 114px;
+    left: 15px;
+    top: 295px;
 
-<!--        <div style="display: flex; flex-direction: row; width: 329px">-->
-<!--            <div style="flex: 8;">-->
-<!--            <div class="hi">-->
-<!--                <p>삼성 ID 달달 카드</p>-->
-<!--            </div>-->
-<!--            <div class="hi2">-->
-<!--                <p>생명보험, 손해보험 10% 할인카드</p>-->
-<!--            </div>-->
-<!--            <div class="hi3">-->
-<!--                <p>정기결제 시 10% 결제일 할인</p>-->
-<!--            </div>-->
-<!--            </div>-->
-<!--            <div style="flex: 2">-->
-<!--                <img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/c1.png" class="card" alt="Image 1">-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        </div>-->
-    <div class="graphbox" style="background-color: #E4E8FC; margin-top: 20px">
-        <div th:each="card : ${cards}" style="display: flex; flex-direction: row; width: 329px">
+    background: #E4E8FC;
+    border-radius: 20px;
+     margin-top: 20px">
+            <div style="display:flex;flex-direction: row; ">
             <div style="flex: 8;">
-            <div class="hi">
+            <div class="hi" style=" width: 150px;
+                                    height: 35px;
+
+                                    margin-left: 30px;
+                                    margin-top: 10px;
+
+                                    font-style: normal;
+                                    font-weight: 700;
+                                    font-size: 16px;
+                                    line-height: 26px;">
                 <span th:text="${card.name}"></span>
             </div>
-            <div class="hi2">
+            <div class="hi2" style=" margin-top:-5px;
+                                     margin-left: 30px;
+                                    height: 30px;
+                                    font-weight: bold;
+                                    font-size: 12px;
+                                    line-height: 17px;
+                                    color: #2B66F5;">
                 <span th:text="${card.description1}"></span>
             </div>
-            <div class="hi3">
+            <div class="hi3" style="    margin-top: -5px;
+                                        margin-left: 30px;
+                                        height: 30px;
+
+                                        font-style: normal;
+                                        font-weight: 500;
+                                        font-size: 12px;
+                                        line-height: 17px;
+
+                                        color: #989898;
+">
                 <span th:text="${card.description2}"></span>
             </div>
             </div>
             <div style="flex: 2">
-                <img th:src="${card.img}"  class="card" alt="Image 1">
+                <img th:src="${card.img}"  class="card" alt="Image 1" style="
+                                                                            margin-top: 20px;
+                                                                            border-radius: 10px;
+                                                                            width: 70%;
+                                                                            height: auto;
+                                                                            max-width: 100%;">
             </div>
         </div>
         </div>
-     <div class="graphbox" style="background-color: #E4E8FC; margin-top: 20px">
-        <div style="display: flex; flex-direction: row; width: 329px">
-            <div style="flex: 8;">
-            <div class="hi">
-                <p>삼성 ID 달달 카드</p>
-            </div>
-            <div class="hi2">
-                <p>생명보험, 손해보험 10% 할인카드</p>
-            </div>
-            <div class="hi3">
-                <p>정기결제 시 10% 결제일 할인</p>
-            </div>
-            </div>
-            <div style="flex: 2">
-                <img src="https://kusitsm27new.s3.us-east-2.amazonaws.com/c1.png" class="card" alt="Image 1">
-            </div>
-        </div>
-        </div>
+
 
 <!--        <div>-->
 
