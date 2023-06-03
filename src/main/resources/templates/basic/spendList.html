@@ -17,9 +17,9 @@
     <title>고정비 지출 분석중</title>
 </head>
 
-<body>
-<div class="top-graphbox">
-    <div class="top-graphbox">
+<body >
+<div class="top-graphbox" style="width: 310px; margin: 0 auto;">
+<!--    <div class="top-graphbox">-->
         <button class="before" onclick="location.href='/spendAnalysisCompare'" style="border: none;
     background-color: transparent;
     padding: 0;
@@ -28,11 +28,11 @@
     <div class="top" style=" margin-top: 15px;
                             display: flex;
                             flex-direction: row;
-                           text-align: center;">
+                           text-align: center; width: 290px; margin: 0 auto;">
         <h2 style="flex:1"><span th:text="${month}"></span>월 <span th:text="${category}"></h2>
         <h2 style="flex:1; color:#2B66F5"><span th:text="${totalMoney}"></span>원</h2>
     </div>
-    <div class = "middle">
+    <div class = "middle" style="width: 310px; margin: 0 auto;">
         <hr style="color:#D9D9D9; height: 3px;  background-color: #D9D9D9;">
     </div>
 
@@ -42,7 +42,7 @@
             <div class="hi" style=" margin-left: 26px; color:#868686; font-weight: 500;">
                 <p><span th:text="${item.dateStr}"></span></p>
             </div>
-            <div class="list" style="width: 322px;
+            <div class="list" style="width: 290px;
                                         height: 45px;
                                         left: 21px;
                                         top: 202px;
