@@ -40,7 +40,7 @@
         <div th:each="item : ${items}" >
 <!--            <div class="spendList" >-->
             <div class="hi" style=" margin-left: 26px; color:#868686; font-weight: 500;">
-                <p><span th:text="${item.date}"></span></p>
+                <p><span th:text="${item.dateStr}"></span></p>
             </div>
             <div class="list" style="width: 322px;
                                         height: 45px;
@@ -54,7 +54,7 @@
                                         margin: 0 auto;">
 
                 <p class="hi2" style="flex:2; margin-top:15px;margin-left: 30px;height: 30px;font-weight: bold; font-size: 12px; line-height: 17px;"><span th:text="${item.title}"></span></p>
-                <p class="hi2" style="flex:2; margin-top:15px;margin-left: 30px;height: 30px;font-weight: bold; font-size: 12px; line-height: 17px; color:#2B66F5"><span th:text="${item.price}"></span>원</p>
+                <p class="hi2" style="flex:2; margin-top:15px;margin-left: 30px;height: 30px;font-weight: bold; font-size: 12px; line-height: 17px; color:#2B66F5"><span th:text="${item.priceStr}"></span>원</p>
             </div>
             <hr>
 <!--            </div>-->

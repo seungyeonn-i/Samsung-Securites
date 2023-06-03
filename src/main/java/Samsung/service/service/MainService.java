@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -89,7 +90,15 @@ public class MainService {
 
     public List<ExpenseDto> getExpenseList(Category category) {
 
-        return expenseRepository.getExpensesByCategory(41L, category).orElseThrow(NullPointerException::new);
+        List<ExpenseDto> expenseDtos = expenseRepository.getExpensesByCategory(41L, category).orElseThrow(NullPointerException::new);
+        for (ExpenseDto expenseDto : expenseDtos) {
+
+            expenseDto.setPriceStr(expenseDto.getPrice());
+            expenseDto.setDateStr(expenseDto.getDate());
+
+        }
+
+        return expenseDtos;
 
     }
 
@@ -101,5 +110,12 @@ public class MainService {
             recards.add(new CardDto(card.getName(), card.getDescription1(), card.getDescription2(),card.getImg()));
         }
         return recards;
+    }
+
+    public String getTotalByCategory(Category category) {
+
+        DecimalFormat decFormat = new DecimalFormat("###,###");
+
+        return decFormat.format(expenseRepository.getMyExpensesSumByCategory(41L, category).orElseThrow(NullPointerException::new));
     }
 }

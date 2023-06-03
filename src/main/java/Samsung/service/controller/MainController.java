@@ -4,6 +4,7 @@ import Samsung.service.dto.CardDto;
 import Samsung.service.dto.ExpenseDto;
 import Samsung.service.entity.Category;
 import Samsung.service.entity.Expense;
+import Samsung.service.repository.MemberRepository;
 import Samsung.service.service.MainService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,6 +23,7 @@ import java.util.List;
 public class MainController {
 
     private final MainService mainService;
+    private final MemberRepository memberRepository;
 
     @GetMapping("/mydata")
     public String mydataAgree(Model model) {
@@ -78,7 +80,7 @@ public class MainController {
     @GetMapping("/spendList/{category}")
     public String spendList(Model model , @PathVariable("category") String category) {
         model.addAttribute("month", 5);
-        model.addAttribute("totalMoney", 20000);
+        model.addAttribute("totalMoney", mainService.getTotalByCategory(Category.valueOf(category)));
         model.addAttribute("category", category);
         model.addAttribute("items", mainService.getExpenseList(Category.valueOf(category)));
 
