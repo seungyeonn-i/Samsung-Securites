@@ -96,12 +96,12 @@
 
 
 .graphbox{
-    width: 329px;
-    height: 114px;
+    /*width: 329px;*/
+    /*height: 114px;*/
     left: 15px;
     top: 295px;
 
-    background: #E4E8FC;
+    /*background: #E4E8FC;*/
     border-radius: 20px;
     display: flex;
     flex-direction: column;
