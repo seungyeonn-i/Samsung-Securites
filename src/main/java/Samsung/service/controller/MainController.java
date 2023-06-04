@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -38,12 +39,14 @@ public class MainController {
     @GetMapping("/spendAnalysisReportNew")
     public String spendAnalysisReport(Model model) throws JsonProcessingException {
 
+        DecimalFormat decFormat = new DecimalFormat("###,###");
+
         List<Integer> incomes = mainService.getIncomes(41L);
         model.addAttribute("fixedPercent", incomes.get(2));
         model.addAttribute("lastFixedPercent", 3);
-        model.addAttribute("month", incomes.get(0));
-        model.addAttribute("total", incomes.get(1));
-        model.addAttribute("fixed", incomes.get(0));
+        model.addAttribute("month", decFormat.format(incomes.get(0)));
+        model.addAttribute("total", decFormat.format(incomes.get(1)));
+        model.addAttribute("fixed", decFormat.format(incomes.get(0)));
 
         model.addAttribute("many", "보험비");
 
