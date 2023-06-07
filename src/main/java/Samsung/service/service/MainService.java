@@ -62,26 +62,26 @@ public class MainService {
 
         // 나의 지출 , 동일 연령대, 동일 소득 파트별
         int[] dataValues = new int[3];
-        dataValues[0] = expenseRepository.getMyExpensesSumByCategory(41L, category).orElseThrow(NullPointerException::new)/100000;
+        dataValues[0] = expenseRepository.getMyExpensesSumByCategory(41L, category).orElseThrow(NullPointerException::new)/10000;
         if (category.equals(Category.식비)) {
-            dataValues[1] =memberRepository.getSameAgeExpenseAverageFood(41L).orElseThrow(NullPointerException::new)/100000;
-            dataValues[2] = memberRepository.getSameIncomeAverageFood(2500000L).orElseThrow(NullPointerException::new)/100000;
+            dataValues[1] =memberRepository.getSameAgeExpenseAverageFood().orElseThrow(NullPointerException::new)/10000;
+            dataValues[2] = memberRepository.getSameIncomeAverageFood(2500000L).orElseThrow(NullPointerException::new)/10000;
         }
         if (category.equals(Category.교통비)) {
-            dataValues[1] =memberRepository.getSameAgeExpenseAverageTransportation(41L).orElseThrow(NullPointerException::new)/100000;
-            dataValues[2] = memberRepository.getSameIncomeAverageTransportation(2500000L).orElseThrow(NullPointerException::new)/100000;
+            dataValues[1] =memberRepository.getSameAgeExpenseAverageTransportation().orElseThrow(NullPointerException::new)/10000;
+            dataValues[2] = memberRepository.getSameIncomeAverageTransportation(2500000L).orElseThrow(NullPointerException::new)/10000;
         }
         if (category.equals(Category.보험비)) {
-            dataValues[1] =memberRepository.getSameAgeExpenseAverageInsurance(41L).orElseThrow(NullPointerException::new)/100000;
-            dataValues[2] = memberRepository.getSameIncomeAverageInsurance(2500000L).orElseThrow(NullPointerException::new)/100000;
+            dataValues[1] =memberRepository.getSameAgeExpenseAverageInsurance().orElseThrow(NullPointerException::new)/10000;
+            dataValues[2] = memberRepository.getSameIncomeAverageInsurance(2500000L).orElseThrow(NullPointerException::new)/10000;
         }
         if (category.equals(Category.주거비)) {
-            dataValues[1] =memberRepository.getSameAgeExpenseAverageHousing(41L).orElseThrow(NullPointerException::new)/100000;
-            dataValues[2] = memberRepository.getSameIncomeAverageHousing(2500000L).orElseThrow(NullPointerException::new)/100000;
+            dataValues[1] =memberRepository.getSameAgeExpenseAverageHousing().orElseThrow(NullPointerException::new)/10000;
+            dataValues[2] = memberRepository.getSameIncomeAverageHousing(2500000L).orElseThrow(NullPointerException::new)/10000;
         }
         if (category.equals(Category.구독비)) {
-            dataValues[1] =memberRepository.getSameAgeExpenseAverageSubscription(41L).orElseThrow(NullPointerException::new)/100000;
-            dataValues[2] = memberRepository.getSameIncomeAverageSubscription(2500000L).orElseThrow(NullPointerException::new)/100000;
+            dataValues[1] =memberRepository.getSameAgeExpenseAverageSubscription().orElseThrow(NullPointerException::new)/10000;
+            dataValues[2] = memberRepository.getSameIncomeAverageSubscription(2500000L).orElseThrow(NullPointerException::new)/10000;
         }
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writeValueAsString(dataValues);

@@ -4,6 +4,7 @@ import Samsung.service.dto.CardDto;
 import Samsung.service.dto.ExpenseDto;
 import Samsung.service.entity.Category;
 import Samsung.service.entity.Expense;
+import Samsung.service.repository.ExpenseRepository;
 import Samsung.service.repository.MemberRepository;
 import Samsung.service.service.MainService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -18,6 +19,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -25,6 +27,7 @@ public class MainController {
 
     private final MainService mainService;
     private final MemberRepository memberRepository;
+    private final ExpenseRepository expenseRepository;
 
     @GetMapping("/mydata")
     public String mydataAgree(Model model) {
@@ -68,8 +71,8 @@ public class MainController {
     @GetMapping("/spendAnalysisCompare")
     public String spendAnalysisCompare(Model model) throws JsonProcessingException {
         model.addAttribute("maxSpend", "식비");
-        model.addAttribute("maxSpendMoney", 8);
         model.addAttribute("category", "식비");
+        model.addAttribute("text", "절약");
 
         // 배열
 
@@ -77,6 +80,10 @@ public class MainController {
         ObjectMapper objectMapper = new ObjectMapper();
 
         model.addAttribute("jsonData", jsonData);
+
+        int many = memberRepository.getSameAgeExpenseAverageFood().get() - expenseRepository.getMyExpensesSumByCategory(41L, Category.식비).get();
+        model.addAttribute("maxSpendMoney", many);
+
 
         return "basic/spendAnalysisCompare";
     }

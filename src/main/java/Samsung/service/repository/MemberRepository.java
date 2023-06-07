@@ -16,17 +16,17 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 
     @Query("select m from Member m where m.id = :userId")
     Optional<Member> getMyExpenses(@Param("userId") Long userId);
-    @Query("select avg(m.food) from Member m where m.id = :userId")
-    Optional<Integer> getSameAgeExpenseAverageFood(@Param("userId") Long userId);
+    @Query("select avg(m.food) from Member m ")
+    Optional<Integer> getSameAgeExpenseAverageFood();
 
-    @Query("select avg(m.housing) from Member m where m.id = :userId")
-    Optional<Integer> getSameAgeExpenseAverageHousing(@Param("userId") Long userId);
-    @Query("select avg(m.insurance) from Member m where m.id = :userId")
-    Optional<Integer> getSameAgeExpenseAverageInsurance(@Param("userId") Long userId);
-    @Query("select avg(m.subscription) from Member m where m.id = :userId")
-    Optional<Integer> getSameAgeExpenseAverageSubscription(@Param("userId") Long userId);
-    @Query("select avg(m.transportation) from Member m where m.id = :userId")
-    Optional<Integer> getSameAgeExpenseAverageTransportation(@Param("userId") Long userId);
+    @Query("select avg(m.housing) from Member m ")
+    Optional<Integer> getSameAgeExpenseAverageHousing();
+    @Query("select avg(m.insurance) from Member m ")
+    Optional<Integer> getSameAgeExpenseAverageInsurance();
+    @Query("select avg(m.subscription) from Member m ")
+    Optional<Integer> getSameAgeExpenseAverageSubscription();
+    @Query("select avg(m.transportation) from Member m ")
+    Optional<Integer> getSameAgeExpenseAverageTransportation();
     @Query("select avg(m.food) from Member m where m.income = :income")
     Optional<Integer> getSameIncomeAverageFood( @Param("income") Long income);
 
