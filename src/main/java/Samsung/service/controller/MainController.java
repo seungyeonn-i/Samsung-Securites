@@ -76,12 +76,12 @@ public class MainController {
 
         // 배열
 
-        String jsonData = mainService.createChart(Category.식비);
+        String jsonData = mainService.createChart(Category.식비);d -A
         ObjectMapper objectMapper = new ObjectMapper();
 
         model.addAttribute("jsonData", jsonData);
 
-        int many = memberRepository.getSameAgeExpenseAverageFood().get() - expenseRepository.getMyExpensesSumByCategory(41L, Category.식비).get();
+        int many = ( expenseRepository.getMyExpensesSumByCategory(41L, Category.식비).get() - memberRepository.getSameAgeExpenseAverageFood().get() ) / 10000;
         model.addAttribute("maxSpendMoney", many);
 
 
