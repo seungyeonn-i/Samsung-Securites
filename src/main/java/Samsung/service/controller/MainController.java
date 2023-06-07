@@ -48,7 +48,7 @@ public class MainController {
         model.addAttribute("total", decFormat.format(incomes.get(1)));
         model.addAttribute("fixed", decFormat.format(incomes.get(0)));
 
-        model.addAttribute("many", "보험비");
+        model.addAttribute("many", "식비");
 
         String jsonData = mainService.createMainChart(41L);
         model.addAttribute("jsonData", jsonData);
@@ -67,13 +67,14 @@ public class MainController {
 
     @GetMapping("/spendAnalysisCompare")
     public String spendAnalysisCompare(Model model) throws JsonProcessingException {
-        model.addAttribute("maxSpend", "보험비");
+        model.addAttribute("maxSpend", "식비");
         model.addAttribute("maxSpendMoney", 8);
         model.addAttribute("category", "식비");
 
-        int[] dataValues = new int[]{9, 30, 50};
+        // 배열
+
+        String jsonData = mainService.createChart(Category.식비);
         ObjectMapper objectMapper = new ObjectMapper();
-        String jsonData = objectMapper.writeValueAsString(dataValues);
 
         model.addAttribute("jsonData", jsonData);
 
